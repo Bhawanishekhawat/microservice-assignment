@@ -5,12 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import user.management.user.service.VO.Department;
 import user.management.user.service.VO.ResponseTemplateVO;
 import user.management.user.service.entity.User;
 import user.management.user.service.repository.UserRepo;
 
+@AllArgsConstructor
 @Service
 @Slf4j
 public class UserService {
@@ -20,6 +22,7 @@ public class UserService {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
 	
 	public User registerUser(User user) {
 		log.info("inside the saveUser method of User service ");
@@ -60,4 +63,6 @@ public class UserService {
 		vo.setDepartment(department);
 		return vo;
 	}
+
+	
 }
